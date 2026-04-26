@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#8C2730">
+    <title>Panel Administrativo — Conteo de Actividades</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-body">
+
+    <!-- ============== LOGIN ADMIN ============== -->
+    <section class="admin-login" id="adminLogin">
+        <div class="admin-login-card">
+            <div class="admin-login-icon">
+                <i class="fas fa-lock"></i>
+            </div>
+            <h1>Panel Administrativo</h1>
+            <p>Ingresa con tu cuenta autorizada.</p>
+
+            <form id="loginForm" class="admin-login-form">
+                <div class="admin-field">
+                    <label for="loginEmail">Correo</label>
+                    <input type="email" id="loginEmail" required autocomplete="email" placeholder="admin@correo.com">
+                </div>
+                <div class="admin-field">
+                    <label for="loginPassword">Contraseña</label>
+                    <input type="password" id="loginPassword" required autocomplete="current-password" placeholder="••••••••">
+                </div>
+                <div class="admin-error" id="loginError"></div>
+                <button type="submit" class="admin-btn admin-btn-primary" id="btnLogin">
+                    <i class="fas fa-arrow-right-to-bracket"></i>
+                    <span>Entrar</span>
+                </button>
+            </form>
+
+            <a href="index.html" class="admin-back-link">
+                <i class="fas fa-arrow-left"></i> Volver al cuestionario
+            </a>
+        </div>
+    </section>
+
+    <!-- ============== DASHBOARD ============== -->
+    <section class="admin-dashboard" id="adminDashboard" hidden>
+
+        <header class="admin-header">
+            <div class="admin-header-inner">
+                <div class="admin-brand">
+                    <i class="fas fa-chart-line"></i>
+                    <div>
+                        <strong>Panel Administrativo</strong>
+                        <small id="adminEmail">—</small>
+                    </div>
+                </div>
+                <div class="admin-header-actions">
+                    <a href="index.html" class="admin-icon-btn" title="Cuestionario">
+                        <i class="fas fa-house"></i>
+                    </a>
+                    <button class="admin-icon-btn" id="btnLogout" title="Cerrar sesión">
+                        <i class="fas fa-arrow-right-from-bracket"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="admin-main">
+
+            <!-- KPIs -->
+            <section class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-icon kpi-icon-1"><i class="fas fa-users"></i></div>
+                    <div class="kpi-info">
+                        <span class="kpi-label">Personas</span>
+                        <strong class="kpi-value" id="kpiPersons">0</strong>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon kpi-icon-2"><i class="fas fa-clipboard-list"></i></div>
+                    <div class="kpi-info">
+                        <span class="kpi-label">Registros</span>
+                        <strong class="kpi-value" id="kpiRecords">0</strong>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon kpi-icon-3"><i class="fas fa-hashtag"></i></div>
+                    <div class="kpi-info">
+                        <span class="kpi-label">Total acciones</span>
+                        <strong class="kpi-value" id="kpiTotal">0</strong>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon kpi-icon-4"><i class="fas fa-calendar-day"></i></div>
+                    <div class="kpi-info">
+                        <span class="kpi-label">Días con actividad</span>
+                        <strong class="kpi-value" id="kpiDays">0</strong>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Filtros -->
+            <section class="admin-filters">
+                <div class="filter-row">
+                    <div class="filter-item">
+                        <label><i class="fas fa-magnifying-glass"></i> Buscar persona</label>
+                        <input type="text" id="filterName" placeholder="Nombre…">
+                    </div>
+                    <div class="filter-item">
+                        <label><i class="fas fa-calendar"></i> Desde</label>
+                        <input type="date" id="filterFrom">
+                    </div>
+                    <div class="filter-item">
+                        <label><i class="fas fa-calendar"></i> Hasta</label>
+                        <input type="date" id="filterTo">
+                    </div>
+                    <button class="admin-btn admin-btn-ghost" id="btnClearFilters">
+                        <i class="fas fa-eraser"></i> Limpiar
+                    </button>
+                </div>
+            </section>
+
+            <!-- Tabs -->
+            <section class="admin-tabs-wrapper">
+                <div class="admin-tabs">
+                    <button class="admin-tab active" data-view="persons">
+                        <i class="fas fa-user"></i> Por persona
+                    </button>
+                    <button class="admin-tab" data-view="activities">
+                        <i class="fas fa-list-check"></i> Por actividad
+                    </button>
+                    <button class="admin-tab" data-view="dates">
+                        <i class="fas fa-calendar-days"></i> Por fecha
+                    </button>
+                    <button class="admin-tab" data-view="records">
+                        <i class="fas fa-database"></i> Registros
+                    </button>
+                </div>
+
+                <!-- Vista: Por persona -->
+                <div class="admin-view active" id="viewPersons">
+                    <div class="admin-section-header">
+                        <h3>Total por persona</h3>
+                        <span class="admin-section-count" id="countPersons">0 personas</span>
+                    </div>
+                    <div class="admin-table-wrapper">
+                        <table class="admin-table" id="tablePersons">
+                            <thead></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Vista: Por actividad -->
+                <div class="admin-view" id="viewActivities">
+                    <div class="admin-section-header">
+                        <h3>Total por actividad</h3>
+                        <span class="admin-section-count" id="countActivities">0 actividades</span>
+                    </div>
+                    <div class="activity-totals" id="activityTotals"></div>
+                </div>
+
+                <!-- Vista: Por fecha -->
+                <div class="admin-view" id="viewDates">
+                    <div class="admin-section-header">
+                        <h3>Total por fecha</h3>
+                        <span class="admin-section-count" id="countDates">0 días</span>
+                    </div>
+                    <div class="admin-table-wrapper">
+                        <table class="admin-table" id="tableDates">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Personas</th>
+                                    <th>Registros</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Vista: Registros (raw) -->
+                <div class="admin-view" id="viewRecords">
+                    <div class="admin-section-header">
+                        <h3>Registros individuales</h3>
+                        <span class="admin-section-count" id="countRecords">0 registros</span>
+                    </div>
+                    <div class="records-list" id="recordsList"></div>
+                </div>
+            </section>
+
+            <!-- Estado vacío / cargando -->
+            <div class="admin-empty" id="adminEmpty" hidden>
+                <i class="fas fa-inbox"></i>
+                <p id="adminEmptyMsg">Aún no hay registros.</p>
+            </div>
+
+            <div class="admin-loading" id="adminLoading" hidden>
+                <div class="spinner"></div>
+                <p>Cargando registros…</p>
+            </div>
+
+        </main>
+    </section>
+
+    <!-- Toast -->
+    <div class="toast" id="adminToast">
+        <i class="fas fa-circle-check"></i>
+        <span id="adminToastMsg">—</span>
+    </div>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>

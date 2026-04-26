@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#8C2730">
+    <title>Conteo de Actividades Espirituales</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ============== PANTALLA: INTRODUCCIÓN ============== -->
+    <section class="screen screen-intro active" id="screenIntro">
+        <div class="intro-bg">
+            <div class="intro-particles" id="particles"></div>
+        </div>
+
+        <div class="intro-content">
+
+            <h1 class="intro-title">
+                Ramillete espiritual <span class="gradient-text">Platicas Hombres #175</span>
+            </h1>
+
+            <p class="intro-subtitle">
+                Lleva un registro sencillo de tus actividades espirituales del día.
+                Una a una, sin distracciones.
+            </p>
+
+            <div class="how-card">
+                <h3><i class="fas fa-circle-info"></i> ¿Cómo funciona?</h3>
+                <ol class="how-steps">
+                    <li>
+                        <span class="step-num">1</span>
+                        <span>Comparte tu nombre para identificar el registro.</span>
+                    </li>
+                    <li>
+                        <span class="step-num">2</span>
+                        <span>Te mostraremos cada actividad en una pantalla.</span>
+                    </li>
+                    <li>
+                        <span class="step-num">3</span>
+                        <span>Anota la cantidad usando los botones <strong>+ / −</strong> o escribiendo el número.</span>
+                    </li>
+                    <li>
+                        <span class="step-num">4</span>
+                        <span>Al finalizar verás un resumen y podrás compartirlo por correo o WhatsApp.</span>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="activities-preview">
+                <span class="preview-label">Actividades a registrar:</span>
+                <div class="preview-chips" id="previewChips"></div>
+            </div>
+        </div>
+
+        <button class="floating-btn floating-btn-intro" id="btnStart">
+            <i class="fas fa-rocket"></i>
+            <span>Comenzar</span>
+        </button>
+    </section>
+
+    <!-- ============== PANTALLA: NOMBRE ============== -->
+    <section class="screen screen-name" id="screenName">
+        <div class="screen-container">
+            <div class="step-indicator">
+                <i class="fas fa-user"></i>
+                <span>Antes de empezar</span>
+            </div>
+
+            <h2 class="screen-title">¿Cómo te llamas?</h2>
+            <p class="screen-description">
+                Tu nombre se incluirá en el resumen final del cuestionario.
+            </p>
+
+            <div class="name-input-wrapper">
+                <i class="fas fa-id-badge input-icon"></i>
+                <input
+                    type="text"
+                    id="userName"
+                    class="name-input"
+                    placeholder="Escribe tu nombre"
+                    autocomplete="name"
+                    maxlength="60"
+                />
+            </div>
+
+            <div class="name-error" id="nameError"></div>
+        </div>
+
+        <div class="floating-actions">
+            <button class="floating-btn floating-btn-secondary" id="btnNameBack">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <button class="floating-btn floating-btn-primary" id="btnNameNext">
+                <span>Continuar</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- ============== PANTALLA: ACTIVIDAD (dinámica) ============== -->
+    <section class="screen screen-activity" id="screenActivity">
+        <div class="progress-top">
+            <div class="progress-info">
+                <span class="progress-current" id="progressCurrent">1</span>
+                <span class="progress-divider">/</span>
+                <span class="progress-total" id="progressTotal">10</span>
+            </div>
+            <div class="progress-bar-wrapper">
+                <div class="progress-bar-fill" id="progressBarFill"></div>
+            </div>
+        </div>
+
+        <div class="screen-container activity-container">
+            <div class="activity-icon-wrapper">
+                <i class="activity-icon" id="activityIcon"></i>
+            </div>
+
+            <span class="activity-tag" id="activityTag">Actividad</span>
+            <h2 class="activity-title" id="activityTitle">—</h2>
+            <p class="activity-hint">Indica la cantidad realizada hoy</p>
+
+            <div class="counter">
+                <button class="counter-btn counter-minus" id="btnMinus" aria-label="Disminuir">
+                    <i class="fas fa-minus"></i>
+                </button>
+
+                <div class="counter-display">
+                    <input
+                        type="number"
+                        id="counterInput"
+                        class="counter-input"
+                        min="0"
+                        max="9999"
+                        inputmode="numeric"
+                        value="0"
+                    />
+                </div>
+
+                <button class="counter-btn counter-plus" id="btnPlus" aria-label="Aumentar">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+
+            <div class="quick-buttons">
+                <button class="quick-btn" data-add="5">+5</button>
+                <button class="quick-btn" data-add="10">+10</button>
+                <button class="quick-btn" data-add="50">+50</button>
+                <button class="quick-btn quick-btn-reset" id="btnReset">
+                    <i class="fas fa-rotate-left"></i> 0
+                </button>
+            </div>
+        </div>
+
+        <div class="floating-actions">
+            <button class="floating-btn floating-btn-secondary" id="btnActBack">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <button class="floating-btn floating-btn-primary" id="btnActNext">
+                <span id="btnActNextLabel">Siguiente</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- ============== PANTALLA: RESUMEN ============== -->
+    <section class="screen screen-summary" id="screenSummary">
+        <div class="screen-container summary-container">
+            <div class="summary-success">
+                <i class="fas fa-circle-check"></i>
+            </div>
+
+            <span class="summary-tag">¡Cuestionario completado!</span>
+            <h2 class="screen-title">Tu Resumen</h2>
+            <p class="screen-description" id="summaryGreeting">Estos son los conteos registrados.</p>
+
+            <div class="summary-meta">
+                <div class="meta-item">
+                    <i class="fas fa-user"></i>
+                    <span id="summaryName">—</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-calendar"></i>
+                    <span id="summaryDate">—</span>
+                </div>
+            </div>
+
+            <!-- Estado de guardado en la nube -->
+            <div class="cloud-status" id="cloudStatus" hidden>
+                <i class="fas fa-cloud-arrow-up cloud-icon"></i>
+                <span id="cloudStatusText">Guardando en la nube...</span>
+            </div>
+
+            <div class="summary-list" id="summaryList"></div>
+
+            <div class="summary-total">
+                <span>Total de actividades</span>
+                <strong id="summaryTotal">0</strong>
+            </div>
+
+            <h4 class="share-title">
+                <i class="fas fa-share-nodes"></i> Compartir resumen
+            </h4>
+
+            <div class="share-grid">
+                <button class="share-btn share-whatsapp" id="btnWhatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </button>
+                <button class="share-btn share-email" id="btnEmail">
+                    <i class="fas fa-envelope"></i>
+                    <span>Correo</span>
+                </button>
+                <button class="share-btn share-copy" id="btnCopy">
+                    <i class="fas fa-copy"></i>
+                    <span>Copiar</span>
+                </button>
+            </div>
+
+            <button class="restart-btn" id="btnRestart">
+                <i class="fas fa-rotate"></i>
+                Comenzar de nuevo
+            </button>
+        </div>
+    </section>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <i class="fas fa-circle-check"></i>
+        <span id="toastMsg">¡Copiado!</span>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
