@@ -1,35 +1,35 @@
 /* ========================================
    CONTEO DE ACTIVIDADES ESPIRITUALES
    Paleta:
-   - #8C2730  rojo guinda (primario)
-   - #F2CC0F  amarillo
-   - #F2AB27  naranja
-   - #732002  café oscuro
-   - #F2F2F2  gris claro
+   - #D43B35  rojo (primario)
+   - #E07840  naranja
+   - #C8E4E8  teal claro (acento)
+   - #6B5B6E  morado (secundario)
+   - #272323  carbón (texto)
 ======================================== */
 
 :root {
-    --color-primary: #8C2730;
-    --color-primary-dark: #6e1d25;
-    --color-yellow: #F2CC0F;
-    --color-orange: #F2AB27;
-    --color-brown: #732002;
+    --color-primary: #D43B35;
+    --color-primary-dark: #B02D28;
+    --color-yellow: #C8E4E8;
+    --color-orange: #E07840;
+    --color-brown: #6B5B6E;
     --color-bg: #F2F2F2;
     --color-white: #ffffff;
 
-    --text-primary: #2a1414;
-    --text-secondary: #5a4a4a;
-    --text-tertiary: #8a7a7a;
-    --border-color: #e2dada;
+    --text-primary: #272323;
+    --text-secondary: #5a4a5a;
+    --text-tertiary: #8a7a8a;
+    --border-color: #e2dae2;
 
-    --gradient-primary: linear-gradient(135deg, #8C2730 0%, #732002 100%);
-    --gradient-warm: linear-gradient(135deg, #F2AB27 0%, #F2CC0F 100%);
-    --gradient-hero: linear-gradient(135deg, #8C2730 0%, #732002 60%, #F2AB27 130%);
+    --gradient-primary: linear-gradient(135deg, #D43B35 0%, #B02D28 100%);
+    --gradient-warm: linear-gradient(135deg, #E07840 0%, #D43B35 100%);
+    --gradient-hero: linear-gradient(135deg, #272323 0%, #D43B35 55%, #E07840 120%);
 
-    --shadow-sm: 0 1px 3px rgba(115, 32, 2, 0.08);
-    --shadow-md: 0 4px 12px rgba(115, 32, 2, 0.12);
-    --shadow-lg: 0 10px 30px rgba(115, 32, 2, 0.18);
-    --shadow-xl: 0 20px 50px rgba(115, 32, 2, 0.22);
+    --shadow-sm: 0 1px 3px rgba(212, 59, 53, 0.08);
+    --shadow-md: 0 4px 12px rgba(212, 59, 53, 0.12);
+    --shadow-lg: 0 10px 30px rgba(212, 59, 53, 0.18);
+    --shadow-xl: 0 20px 50px rgba(212, 59, 53, 0.22);
 
     --radius-sm: 0.5rem;
     --radius-md: 0.75rem;
@@ -241,7 +241,7 @@ input {
     min-width: 28px;
     height: 28px;
     background: var(--gradient-warm);
-    color: var(--color-brown);
+    color: var(--color-white);
     font-weight: 800;
     font-size: 0.85rem;
     border-radius: var(--radius-full);
@@ -287,7 +287,7 @@ input {
     gap: 0.5rem;
     align-self: center;
     padding: 0.4rem 0.9rem;
-    background: rgba(140, 39, 48, 0.1);
+    background: rgba(212, 59, 53, 0.1);
     color: var(--color-primary);
     border-radius: var(--radius-full);
     font-size: 0.8rem;
@@ -344,7 +344,7 @@ input {
 
 .name-input:focus {
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 4px rgba(140, 39, 48, 0.12);
+    box-shadow: 0 0 0 4px rgba(212, 59, 53, 0.12);
 }
 
 .name-input::placeholder {
@@ -469,7 +469,7 @@ input {
 .activity-tag {
     display: inline-block;
     padding: 0.35rem 0.9rem;
-    background: rgba(242, 171, 39, 0.15);
+    background: rgba(224, 120, 64, 0.15);
     color: var(--color-brown);
     border-radius: var(--radius-full);
     font-size: 0.78rem;
@@ -559,7 +559,7 @@ input {
 
 .counter-display:focus-within {
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 4px rgba(140, 39, 48, 0.12);
+    box-shadow: 0 0 0 4px rgba(212, 59, 53, 0.12);
 }
 
 .counter-input {
@@ -652,7 +652,7 @@ input {
     left: 50%;
     transform: translateX(-50%);
     background: var(--gradient-warm);
-    color: var(--color-brown);
+    color: var(--color-white);
     padding: 1.1rem 2.2rem;
     font-size: 1.05rem;
     z-index: 100;
@@ -669,8 +669,8 @@ input {
 }
 
 @keyframes pulseBtn {
-    0%, 100% { box-shadow: 0 10px 30px rgba(242, 204, 15, 0.45); }
-    50%      { box-shadow: 0 10px 40px rgba(242, 204, 15, 0.7); }
+    0%, 100% { box-shadow: 0 10px 30px rgba(224, 120, 64, 0.45); }
+    50%      { box-shadow: 0 10px 40px rgba(224, 120, 64, 0.7); }
 }
 
 .floating-actions {
@@ -735,7 +735,7 @@ input {
     align-items: center;
     justify-content: center;
     font-size: 2.5rem;
-    color: var(--color-brown);
+    color: var(--color-white);
     box-shadow: var(--shadow-lg);
     animation: scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -810,7 +810,7 @@ input {
     width: 38px;
     height: 38px;
     flex-shrink: 0;
-    background: rgba(140, 39, 48, 0.1);
+    background: rgba(212, 59, 53, 0.1);
     color: var(--color-primary);
     border-radius: var(--radius-md);
     display: flex;
@@ -939,7 +939,7 @@ input {
 .restart-btn:hover {
     border-color: var(--color-primary);
     color: var(--color-primary);
-    background: rgba(140, 39, 48, 0.04);
+    background: rgba(212, 59, 53, 0.04);
 }
 
 /* ========================================
@@ -1072,8 +1072,8 @@ input {
 
 .cloud-saving {
     color: var(--color-orange);
-    border-color: rgba(242, 171, 39, 0.4);
-    background: rgba(242, 171, 39, 0.1);
+    border-color: rgba(224, 120, 64, 0.4);
+    background: rgba(224, 120, 64, 0.1);
 }
 
 .cloud-saving .cloud-icon {
@@ -1093,8 +1093,8 @@ input {
 
 .cloud-error {
     color: var(--color-primary);
-    border-color: rgba(140, 39, 48, 0.3);
-    background: rgba(140, 39, 48, 0.07);
+    border-color: rgba(212, 59, 53, 0.3);
+    background: rgba(212, 59, 53, 0.07);
 }
 
 /* ========================================
@@ -1185,7 +1185,7 @@ input {
 .admin-field input:focus {
     border-color: var(--color-primary);
     background: var(--color-white);
-    box-shadow: 0 0 0 4px rgba(140, 39, 48, 0.1);
+    box-shadow: 0 0 0 4px rgba(212, 59, 53, 0.1);
 }
 
 .admin-error {
@@ -1376,7 +1376,7 @@ input {
 }
 
 .kpi-icon-1 { background: var(--gradient-primary); }
-.kpi-icon-2 { background: var(--gradient-warm); color: var(--color-brown); }
+.kpi-icon-2 { background: var(--gradient-warm); }
 .kpi-icon-3 { background: var(--color-brown); }
 .kpi-icon-4 { background: var(--color-orange); }
 
@@ -1451,7 +1451,7 @@ input {
 .filter-item input:focus {
     border-color: var(--color-primary);
     background: var(--color-white);
-    box-shadow: 0 0 0 3px rgba(140, 39, 48, 0.1);
+    box-shadow: 0 0 0 3px rgba(212, 59, 53, 0.1);
 }
 
 /* ----- Tabs ----- */
@@ -1489,7 +1489,7 @@ input {
 
 .admin-tab:hover {
     color: var(--color-primary);
-    background: rgba(140, 39, 48, 0.05);
+    background: rgba(212, 59, 53, 0.05);
 }
 
 .admin-tab.active {
@@ -1687,7 +1687,7 @@ input {
 .record-card:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
-    border-color: rgba(140, 39, 48, 0.3);
+    border-color: rgba(212, 59, 53, 0.3);
 }
 
 .record-header {
@@ -1866,5 +1866,44 @@ input {
 
     .admin-main {
         padding: 1rem 0.75rem;
+    }
+}
+
+/* ========================================
+   LOGO
+======================================== */
+.intro-logo {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.35));
+}
+
+.intro-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.progress-logo {
+    position: absolute;
+    left: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    border-radius: 50%;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+@media (min-width: 768px) {
+    .intro-logo {
+        width: 200px;
+        height: 200px;
     }
 }

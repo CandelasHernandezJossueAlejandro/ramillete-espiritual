@@ -70,12 +70,12 @@ const state = {
 if (firebaseReady) {
     onAuthStateChanged(auth, (user) => {
         if (user) {
-            $('adminLogin').hidden = true;
+            $('adminLogin').style.display = 'none';
             $('adminDashboard').hidden = false;
             $('adminEmail').textContent = user.email || '';
             startListening();
         } else {
-            $('adminLogin').hidden = false;
+            $('adminLogin').style.display = 'flex';
             $('adminDashboard').hidden = true;
             stopListening();
         }
