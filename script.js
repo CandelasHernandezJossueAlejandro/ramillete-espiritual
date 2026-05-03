@@ -32,12 +32,13 @@ try {
 // =====================================================
 const ACTIVITIES = [
     { id: 'padresnuestros',  name: 'Padres Nuestros',                        tag: 'Oración',       icon: 'fa-solid fa-cross' },
-    { id: 'avesmarias',      name: 'Aves Marías',                            tag: 'Oración',       icon: 'fa-solid fa-dove' },
+    { id: 'avesmarias',      name: 'Aves Marías',                            tag: 'Oración',       icon: 'fa-solid fa-star' },
     { id: 'rosarios',        name: 'Rosarios',                               tag: 'Devoción',      icon: 'fa-solid fa-circle-nodes' },
     { id: 'ayunos',          name: 'Ayunos y/o Sacrificios',                 tag: 'Mortificación', icon: 'fa-solid fa-bowl-rice' },
     { id: 'apostolados',     name: 'Apostolados',                            tag: 'Servicio',      icon: 'fa-solid fa-handshake-angle' },
     { id: 'horas',           name: 'Horas de trabajo/estudio',               tag: 'Esfuerzo',      icon: 'fa-solid fa-clock' },
     { id: 'oraciones',       name: 'Oraciones',                              tag: 'Oración',       icon: 'fa-solid fa-hands-praying' },
+    { id: 'visitas',         name: 'Visitas al Santísimo',                   tag: 'Visitas',       icon: 'fa-solid fa-dove' },
     { id: 'comuniones',      name: 'Comuniones sacramentales/espirituales',  tag: 'Eucaristía',    icon: 'fa-solid fa-wheat-awn' },
     { id: 'confesiones',     name: 'Confesiones',                            tag: 'Sacramento',    icon: 'fa-solid fa-comments' },
     { id: 'misas',           name: 'Misas',                                  tag: 'Liturgia',      icon: 'fa-solid fa-church' }
